@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import generics
 from rest_framework.response import Response
@@ -11,6 +12,9 @@ from rest_framework.exceptions import MethodNotAllowed
 from django.contrib.auth.decorators import login_required
 from copy import deepcopy
 import logging
+
+# Create your views here.
+
 class VehicleViewSet(viewsets.ModelViewSet):
     lookup_field = 'id'
     queryset = Vehicle.objects.all()
