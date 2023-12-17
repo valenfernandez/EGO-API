@@ -20,6 +20,8 @@ class Vehicle(models.Model):
     image = models.ImageField(upload_to='images/')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return f'{self.model_name} - {self.year}'
 
 
 class Feature(models.Model):
@@ -29,7 +31,7 @@ class Feature(models.Model):
     image = models.ImageField(upload_to='images/')
     primary_feature = models.BooleanField(default=False)
     def __str__(self):
-        return self.name
+        return f'{self.name} - {self.vehicle.model_name}'
     
 
 class Review(models.Model):
@@ -42,7 +44,7 @@ class Review(models.Model):
     description = models.CharField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        return self.name
+        return f'{self.client_name} - {self.vehicle.model_name}'
 
 
 class Concessionaire(models.Model):
@@ -65,7 +67,7 @@ class TestDrivePetition(models.Model):
     requested_time = models.TimeField(null=True, blank=True)
     approved = models.BooleanField(default=False)
     def __str__(self):
-        return self.name
+        return f'{self.client_name} - {self.vehicle.model_name}'
 
 
 class Service(models.Model):
