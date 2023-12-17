@@ -1,0 +1,6 @@
+Python==3.10.5
+Django==5.0
+Pillow==10.1.0
+djangorestframework
+django-filter
+coreapi
